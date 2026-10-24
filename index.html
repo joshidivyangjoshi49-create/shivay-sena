@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<meta name="description" content="Official Shivay Sena Membership Registration Website">
+<title>Shivay Sena | Official Membership</title>
+
+<style>
+:root {
+  --gold: #d6ad52;
+  --gold-light: #f7df96;
+  --black: #080808;
+  --card: #141414;
+  --text: #f7f3e9;
+  --muted: #b5afa2;
+  --border: rgba(214,173,82,.35);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--black);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(8,8,8,.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  max-width: 1150px;
+  margin: auto;
+  padding: 16px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.brand {
+  color: var(--gold-light);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.nav a:last-child {
+  border: 1px solid var(--gold);
+  padding: 8px 14px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.hero {
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 75px 20px;
+  background:
+    radial-gradient(ellipse at center, #30220d 0%, #11100d 35%, #080808 75%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 800px;
+  animation: appear 1s ease both;
+}
+
+.badge {
+  display: inline-block;
+  color: var(--gold-light);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 7px 18px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 8vw, 76px);
+  line-height: 1.1;
+  color: var(--gold-light);
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto 30px;
+  font-size: 16px;
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #f7df96, #bd8b30);
+  color: #120e06;
+  border: none;
+  border-radius: 5px;
+  padding: 13px 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(214,173,82,.2);
+}
+
+section {
+  padding: 75px 5%;
+}
+
+.container {
+  max-width: 1050px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  color: var(--gold-light);
+  font-size: clamp(26px, 5vw, 38px);
+}
+
+.section-title p {
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.value-card {
+  background: linear-gradient(145deg, #191919, #0d0d0d);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px 20px;
+  text-align: center;
+  transition: .3s;
+}
+
+.value-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.value-card h3 {
+  color: var(--gold-light);
+  margin-bottom: 8px;
+}
+
+.value-card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.registration {
+  background: #0d0d0d;
+}
+
+.form-card {
+  max-width: 700px;
+  margin: auto;
+  background: var(--card);
+  padding: clamp(20px, 5vw, 40px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+label {
+  color: var(--gold-light);
+  font-size: 14px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 13px;
+  border-radius: 5px;
+  border: 1px solid #3b3426;
+  background: #090909;
+  color: white;
+  outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--gold);
+}
+
+input[type="file"] {
+  font-size: 12px;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.form-card .btn {
+  width: 100%;
+  margin-top: 22px;
+}
+
+#message {
+  display: none;
+  margin-top: 18px;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow-wrap: anywhere;
+}
+
+.contact-box {
+  text-align: center;
+  padding: 35px 20px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.contact-box h3 {
+  color: var(--gold-light);
+  margin-bottom: 10px;
+}
+
+.contact-box p {
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 25px 15px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+footer strong {
+  color: var(--gold-light);
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 650px) {
+  .values {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .field.full {
+    grid-column: auto;
+  }
+
+  .hero {
+    min-height: 500px;
+  }
+
+  section {
+    padding: 55px 5%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#" class="brand">SHIVAY SENA</a>
+    <a href="#register">JOIN THE ORGANIZATION</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="badge">OFFICIAL MEMBERSHIP PORTAL</span>
+    <h1>SHIVAY SENA</h1>
+    <p>
+      સેવા • સ્વાભિમાન • સ્વરાજ્ય
+    </p>
+    <p>
+      A platform for membership registration, unity,
+      service and community participation.
+    </p>
+    <a href="#register" class="btn">REGISTER NOW</a>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Principles</h2>
+      <p>Our identity. Our values. Our commitment.</p>
+    </div>
+
+    <div class="values">
+      <article class="value-card">
+        <h3>સેવા</h3>
+        <p>Service to society and helping others.</p>
+      </article>
+
+      <article class="value-card">
+        <h3>સ્વાભિમાન</h3>
+        <p>Self-respect, dignity and responsibility.</p>
+      </article>
+
+      <article class="value-card">
+        <h3>સ્વરાજ્ય</h3>
+        <p>Unity, independence and responsible participation.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="registration" id="register">
+  <div class="container">
+    <div class="section-title">
+      <h2>Membership Registration</h2>
+      <p>Fill in the details to begin your registration.</p>
+    </div>
+
+    <div class="form-card">
+      <form id="registrationForm">
+        <div class="form-grid">
+
+          <div class="field full">
+            <label for="full_name">Full Name *</label>
+            <input
+              type="text"
+              id="full_name"
+              name="full_name"
+              placeholder="Enter your full name"
+              autocomplete="name"
+              maxlength="100"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label for="mobile">Mobile Number *</label>
+            <input
+              type="tel"
+              id="mobile"
+              name="mobile"
+              placeholder="Enter mobile number"
+              inputmode="numeric"
+              pattern="[0-9]{10}"
+              maxlength="10"
+              required
+            >
+            <span class="note">Enter a 10-digit mobile number.</span>
+          </div>
+
+          <div class="field">
+            <label for="photo">Passport-size Photo *</label>
+            <input
+              type="file"
+              id="photo"
+              name="photo"
+              accept="image/jpeg,image/png,image/webp"
+              required
+            >
+            <span class="note">JPG, PNG or WebP; maximum 2 MB.</span>
+          </div>
+
+          <div class="field full">
+            <label for="address">Address</label>
+            <textarea
+              id="address"
+              name="address"
+              rows="3"
+              maxlength="300"
+              placeholder="Enter your address (optional)"
+            ></textarea>
+          </div>
+
+          <div class="field full">
+            <label for="consent">
+              <input
+                type="checkbox"
+                id="consent"
+                style="width:auto"
+                required
+              >
+              I confirm that the information provided is accurate.
+            </label>
+          </div>
+
+        </div>
+
+        <button class="btn" type="submit">
+          SUBMIT REGISTRATION
+        </button>
+
+        <div id="message" role="status" aria-live="polite"></div>
+
+      </form>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="contact-box">
+      <h3>Need Assistance?</h3>
+      <p>Contact the official Shivay Sena team for membership enquiries.</p>
+      <a
+        class="btn"
+        href="https://wa.me/919876543210"
+        target="_blank"
+        rel="noopener noreferrer"
+      >CONTACT US ON WHATSAPP</a>
+      <p class="note" style="margin-top:15px">
+        Temporary contact number. Replace it with the official number.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <strong>SHIVAY SENA</strong>
+  <p>સેવા • સ્વાભિમાન • સ્વરાજ્ય</p>
+  <p>© <span id="year"></span> Shivay Sena. All rights reserved.</p>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+const form = document.getElementById("registrationForm");
+const message = document.getElementById("message");
+const photoInput = document.getElementById("photo");
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const file = photoInput.files[0];
+
+  if (!file) {
+    showMessage("Please select your photo.");
+    return;
+  }
+
+  const allowedTypes = [
+    "image/jpeg",
+    "image/png",
+    "image/webp"
+  ];
+
+  if (!allowedTypes.includes(file.type)) {
+    showMessage("Please upload a JPG, PNG or WebP image.");
+    return;
+  }
+
+  if (file.size > 2 * 1024 * 1024) {
+    showMessage("Photo size must be 2 MB or less.");
+    return;
+  }
+
+  showMessage(
+    "The form design is working, but online registration is not connected yet. Your details have NOT been submitted or saved. Supabase must be connected before real registrations can be accepted."
+  );
+});
+
+function showMessage(text) {
+  message.style.display = "block";
+  message.textContent = text;
+}
+</script>
+
+</body>
+  </html>
